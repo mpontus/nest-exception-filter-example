@@ -14,9 +14,12 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
+    it('should throw an error', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.root()).toBe('Hello World!');
+
+      expect(() => {
+        appController.root();
+      }).toThrow(/User not found/);
     });
   });
 });

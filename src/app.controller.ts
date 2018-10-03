@@ -1,5 +1,6 @@
 import { Get, Controller } from '@nestjs/common';
 import { AppService } from './app.service';
+import { UserNotFoundError } from './UserNotFoundError';
 
 @Controller()
 export class AppController {
@@ -7,6 +8,6 @@ export class AppController {
 
   @Get()
   root(): string {
-    return this.appService.root();
+    throw new UserNotFoundError();
   }
 }
